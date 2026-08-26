@@ -122,7 +122,7 @@
       A completely rigorous personality test with absolutely no psychological validity.
       <br><br>
       <small>
-        <strong>Privacy:</strong>This quiz does not collect, store, or transmit
+        <strong>Privacy: </strong>This quiz does not collect, store, or transmit
         your responses or any personally identifying information.
         Your result is calculated locally in your browser.
       </small>
@@ -199,7 +199,7 @@
 
 </div>
 
-      <button class="restart" onclick="location.reload()">
+      <button class="restart" type="button" onclick="restartQuiz()">
         Take the Test Again
       </button>
 
@@ -221,6 +221,22 @@
     document.getElementById("scoreList");
 
   scoreList.style.display = "block";
+
+  }
+
+  function restartQuiz() {
+
+    // Reset all answers.
+    document.getElementById("quizForm").reset();
+
+    // Hide result.
+    document.getElementById("result").style.display = "none";
+
+    // Show quiz.
+    document.getElementById("quiz").style.display = "block";
+
+    // Hide the score breakdown again.
+    document.getElementById("scoreList").style.display = "none";
 
   }
 

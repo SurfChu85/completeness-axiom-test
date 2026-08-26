@@ -5,20 +5,16 @@ const RESULTS = {
     description: `
       You are a person of limits.
 
-      Not necessarily self-control, mind you. You simply possess
-      an uncanny ability to determine exactly how far something can go
-      before it becomes unacceptable.
+      Not necessarily self-control, mind you. You simply possess an uncanny ability to determine exactly how far something can go before it becomes unacceptable.
 
-      You don't need the maximum. You need the least upper bound:
-      the smallest possible quantity that still contains all the chaos beneath it.
+      You don't need the maximum. You need the least upper bound: the smallest possible quantity that still contains all the chaos beneath it.
 
       Your natural habitat is saying:
 
-      "Okay, but what is the minimum amount of effort I can exert
-      while still technically succeeding?"
+      "Okay, but what is the minimum amount of effort I can exert while still technically succeeding?"
 
-      Fatal flaw: You spend so much time finding the optimal limit
-      that you occasionally forget to actually approach it.
+      Fatal flaw:
+      You spend so much time finding the optimal limit that you occasionally forget to actually approach it.
     `
   },
 
@@ -28,15 +24,14 @@ const RESULTS = {
     description: `
       You cannot tolerate missing information.
 
-      If someone says, "It's a long story," you immediately need
-      to know what happened in the middle.
+      If someone says, "It's a long story," you immediately need to know what happened in the middle.
 
       There are no gaps in the real numbers.
 
       There should also be no gaps in the group chat.
 
-      Fatal flaw: Sometimes there is no hidden information.
-      Sometimes people are just weird.
+      Fatal flaw:
+      Sometimes there is no hidden information. Sometimes people are just weird.
     `
   },
 
@@ -48,15 +43,14 @@ const RESULTS = {
 
       But your successive life decisions are getting closer and closer together.
 
-      At some point, the differences between your plans become
-      arbitrarily small, and you confidently announce:
+      At some point, the differences between your plans become arbitrarily small, and you confidently announce:
 
       "I think I'm figuring it out."
 
-      Under the correct mathematical assumptions,
-      you are converging.
+      Under the correct mathematical assumptions, you are converging.
 
-      Fatal flaw: Sometimes you are merely oscillating emotionally.
+      Fatal flaw:
+      Sometimes you are merely oscillating emotionally.
     `
   },
 
@@ -66,13 +60,12 @@ const RESULTS = {
     description: `
       Your life strategy is elimination.
 
-      You repeatedly shrink your available options until,
-      eventually, there is exactly one point left.
+      You repeatedly shrink your available options until, eventually, there is exactly one point left.
 
       Your tolerance for ambiguity decreases monotonically.
 
-      Fatal flaw: You may narrow your options so aggressively
-      that you accidentally optimize yourself into a corner.
+      Fatal flaw:
+      You may narrow your options so aggressively that you accidentally optimize yourself into a corner.
     `
   },
 
@@ -82,14 +75,12 @@ const RESULTS = {
     description: `
       You believe in momentum.
 
-      If something works here and can always be extended
-      just a little further, why stop?
+      If something works here and can always be extended just a little further, why stop?
 
-      A little progress becomes more progress.
-      More progress becomes the entire interval.
+      A little progress becomes more progress. More progress becomes the entire interval.
 
-      Fatal flaw: You have never once understood
-      the phrase "just enough."
+      Fatal flaw:
+      You have never once understood the phrase "just enough."
     `
   },
 
@@ -97,12 +88,9 @@ const RESULTS = {
     name: "The Monotone Convergence Theorem",
     subtitle: "SLOW. STEADY. BOUNDED.",
     description: `
-      You are not interested in dramatic transformations.
+      You are not interested in dramatic transformations. You simply want tomorrow to be at least slightly better than today.
 
-      You simply want tomorrow to be at least slightly better than today.
-
-      Your growth may be slow.
-      It may be microscopic.
+      Your growth may be slow. It may be microscopic.
 
       But it is nondecreasing.
 
@@ -110,8 +98,8 @@ const RESULTS = {
 
       Probably.
 
-      Fatal flaw: Occasionally, a little chaos is necessary.
-      Please leave your bounded sequence and attend a party.
+      Fatal flaw:
+      Occasionally, a little chaos is necessary. Please leave your bounded sequence and attend a party.
     `
   },
 
@@ -122,20 +110,17 @@ const RESULTS = {
       Your life is a bounded disaster.
 
       You have attempted everything.
+      
       Most of it has failed.
 
-      But somewhere inside the enormous sequence of your
-      questionable decisions, there exists a convergent subsequence.
+      But somewhere inside the enormous sequence of your questionable decisions, there exists a convergent subsequence.
 
       You may not know which one.
 
-      But mathematically speaking,
-      at least one part of this mess has potential.
+      But mathematically speaking, at least one part of this mess has potential.
 
-      Fatal flaw: You have interpreted
-      "there exists a convergent subsequence"
-      as "everything will probably be fine."
-
+      Fatal flaw:
+      You have interpreted "there exists a convergent subsequence" as "everything will probably be fine."
       It does not mean that.
     `
   },
@@ -154,8 +139,8 @@ const RESULTS = {
 
       Between two extremes, something interesting is guaranteed to happen.
 
-      Fatal flaw: Continuity is doing a tremendous amount
-      of work in this personality type.
+      Fatal flaw:
+      Continuity is doing a tremendous amount of work in this personality type.
     `
   }
 };

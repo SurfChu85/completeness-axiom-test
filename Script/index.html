@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <base target="_top">
+
+  <style>
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      margin: 0;
+      padding: 30px;
+      color: #222;
+    }
+
+    .container {
+      max-width: 750px;
+      margin: auto;
+      background: white;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #666;
+      margin-bottom: 35px;
+    }
+
+    .question {
+      margin-bottom: 35px;
+    }
+
+    .question h2 {
+      font-size: 20px;
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      padding: 13px;
+      margin: 8px 0;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    label:hover {
+      background: #f0f0f0;
+    }
+
+    button {
+      display: block;
+      margin: 30px auto 0;
+      padding: 14px 30px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      background: #222;
+      color: white;
+    }
+
+    button:hover {
+      opacity: 0.85;
+    }
+
+    #result {
+      display: none;
+    }
+
+    .result-box {
+      text-align: center;
+    }
+
+    .result-name {
+      font-size: 32px;
+      margin: 20px 0 5px;
+    }
+
+    .result-subtitle {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 30px;
+    }
+
+    .description {
+      text-align: left;
+      white-space: pre-line;
+      line-height: 1.6;
+    }
+
+    .scores {
+      margin-top: 35px;
+      padding-top: 20px;
+      border-top: 1px solid #ddd;
+      text-align: left;
+    }
+
+    .restart {
+      margin-top: 30px;
+    }
+
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <div id="quiz">
+
+    <h1>Which Completeness Axiom Are You?</h1>
+
+    <div class="subtitle">
+      A completely rigorous personality test with absolutely no psychological validity.
+      <br><br>
+      <small>
+        <strong>Privacy:</strong>This quiz does not collect, store, or transmit
+        your responses or any personally identifying information.
+        Your result is calculated locally in your browser.
+      </small>
+    </div>
+
+    <form id="quizForm">
+
+      <? for (var i = 0; i < questions.length; i++) { ?>
+
+        <div class="question">
+
+          <h2>
+            <?= i + 1 ?>. <?= questions[i].question ?>
+          </h2>
+
+          <? for (var j = 0; j < questions[i].answers.length; j++) { ?>
+
+            <label>
+              <input
+                type="radio"
+                name="q<?= i ?>"
+                value="<?= questions[i].answers[j][1] ?>"
+                required
+              >
+
+              <?= questions[i].answers[j][0] ?>
+
+            </label>
+
+          <? } ?>
+
+        </div>
+
+      <? } ?>
+
+      <button type="submit">
+        Determine My Mathematical Personality
+      </button>
+
+      <p style="text-align: center; margin-top: 25px; font-size: 13px; color: #777;">
+        <a
+          href="https://github.com/SurfChu85/completeness-axiom-test"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+        View the source code on GitHub
+        </a>
+      </p>
+
+    </form>
+
+  </div>
+
+
+  <div id="result">
+
+    <div class="result-box">
+
+      <h1>YOUR PERSONALITY HAS CONVERGED.</h1>
+
+      <div class="result-name" id="resultName"></div>
+
+      <div class="result-subtitle" id="resultSubtitle"></div>
+
+      <div class="description" id="resultDescription"></div>
+
+      <div class="scores">
+
+        <button type="button" onclick="showScores()">
+        Want to see why?
+      </button>
+
+      <div id="scoreList" style="display: none; margin-top: 20px;"></div>
+
+</div>
+
+      <button class="restart" onclick="location.reload()">
+        Take the Test Again
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<script>
+
+  const questions = <?!= JSON.stringify(questions) ?>;
+  const results = <?!= JSON.stringify(results) ?>;
+
+  function showScores() {
+
+  const scoreList =
+    document.getElementById("scoreList");
+
+  scoreList.style.display = "block";
+
+  }
+
+  document
+    .getElementById("quizForm")
+    .addEventListener("submit", function(event) {
+
+      event.preventDefault();
+
+      const scores = {
+        LUB: 0,
+        DEDEKIND: 0,
+        CAUCHY: 0,
+        NESTED: 0,
+        OPEN: 0,
+        MONOTONE: 0,
+        BW: 0,
+        IVT: 0
+      };
+
+
+      // Count the selected answers.
+
+      questions.forEach(function(question, index) {
+
+        const selected =
+          document.querySelector(
+            'input[name="q' + index + '"]:checked'
+          );
+
+        if (selected) {
+          scores[selected.value]++;
+        }
+
+      });
+
+
+      // Find highest score.
+
+      const highest =
+        Math.max(...Object.values(scores));
+
+
+      const winners =
+        Object.keys(scores).filter(function(key) {
+          return scores[key] === highest;
+        });
+
+
+      // Randomly resolve ties.
+
+      const resultKey =
+        winners[
+          Math.floor(Math.random() * winners.length)
+        ];
+
+
+      const result = results[resultKey];
+
+
+      // Display result.
+
+      document.getElementById("quiz").style.display = "none";
+
+      document.getElementById("result").style.display = "block";
+
+      document.getElementById("resultName").textContent =
+        result.name;
+
+      document.getElementById("resultSubtitle").textContent =
+        result.subtitle;
+
+      document.getElementById("resultDescription").textContent =
+        result.description;
+
+
+      // Display score distribution.
+
+      const scoreList =
+        document.getElementById("scoreList");
+
+      scoreList.innerHTML = "";
+
+      Object.keys(scores).forEach(function(key) {
+
+        const line =
+          document.createElement("div");
+
+        line.textContent =
+          results[key].name + ": " + scores[key];
+
+        scoreList.appendChild(line);
+
+      });
+
+    });
+
+</script>
+
+</body>
+</html>

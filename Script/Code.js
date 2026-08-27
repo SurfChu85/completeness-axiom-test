@@ -15,6 +15,12 @@ const RESULTS = {
 
       Fatal flaw:
       You spend so much time finding the optimal limit that you occasionally forget to actually approach it.
+    `,
+    axiom: `
+      Every nonempty subset \\(S \\subseteq \\mathbb{R}\\) that is bounded above has a least upper bound:
+      \\[
+      \\sup S \\in \\mathbb{R}.
+      \\]
     `
   },
 
@@ -32,6 +38,11 @@ const RESULTS = {
 
       Fatal flaw:
       Sometimes there is no hidden information. Sometimes people are just weird.
+    `,
+    axiom: `
+      Every Dedekind cut of the real numbers determines a real number.
+
+      Equivalently: if the real numbers are partitioned into two nonempty sets \\(A\\) and \\(B\\) such that every element of \\(A\\) is less than every element of \\(B\\), then there exists a real number that separates the two sets.
     `
   },
 
@@ -51,6 +62,9 @@ const RESULTS = {
 
       Fatal flaw:
       Sometimes you are merely oscillating emotionally.
+    `,
+    axiom: `
+      Every Cauchy sequence of real numbers converges to a real number.
     `
   },
 
@@ -66,6 +80,14 @@ const RESULTS = {
 
       Fatal flaw:
       You may narrow your options so aggressively that you accidentally optimize yourself into a corner.
+    `,
+    axiom: `
+      For every nested sequence of nonempty closed intervals
+      \\[
+      [a_1,b_1] \\supseteq [a_2,b_2]
+      \\supseteq [a_3,b_3] \\supseteq \\cdots
+      \\]
+      whose lengths tend to zero, there exists exactly one real number contained in every interval.
     `
   },
 
@@ -81,6 +103,18 @@ const RESULTS = {
 
       Fatal flaw:
       You have never once understood the phrase "just enough."
+    `,
+    axiom: `
+      Let \\(S\\) be an open subset of \\([a,b]\\).
+
+      Suppose \\(a \\in S\\), and whenever \\([a,x] \\subseteq S\\) for some \\(x < b\\), there exists an \\(\\varepsilon > 0\\) such that
+      \\[
+      [a, x + \\varepsilon] \\subseteq S.
+      \\]
+      Then
+      \\[
+      S = [a,b].
+      \\]
     `
   },
 
@@ -100,6 +134,17 @@ const RESULTS = {
 
       Fatal flaw:
       Occasionally, a little chaos is necessary. Please leave your bounded sequence and attend a party.
+    `,
+    axiom: `
+      Every bounded monotone sequence of real numbers converges.
+
+      In particular, if \\((x_n)\\) is nondecreasing and bounded above, then
+      \\[
+      \\lim_{n \\to \\infty} x_n
+      =
+      \\sup \\{x_n : n \\in \\mathbb{N}\\}.
+      \\]
+      Similarly, every nonincreasing sequence that is bounded below converges to its infimum.
     `
   },
 
@@ -122,6 +167,12 @@ const RESULTS = {
       Fatal flaw:
       You have interpreted "there exists a convergent subsequence" as "everything will probably be fine."
       It does not mean that.
+    `,
+    axiom: `
+      Every bounded sequence \\((x_n)\\) in \\(\\mathbb{R}\\) has a convergent subsequence. That is, if \\((x_n)\\) is bounded, then there exist a subsequence \\((x_{n_k})\\) and some \\(L \\in \\mathbb{R}\\) such that
+      \\[
+      \\lim_{k \\to \\infty} x_{n_k}=L.
+      \\]
     `
   },
 
@@ -141,6 +192,12 @@ const RESULTS = {
 
       Fatal flaw:
       Continuity is doing a tremendous amount of work in this personality type.
+    `,
+    axiom: `
+      If \\(f\\) is continuous on \\([a,b]\\), then for every value \\(y\\) between \\(f(a)\\) and \\(f(b)\\), there exists some \\(c \\in [a,b]\\) such that
+      \\[
+      f(c)=y.
+      \\]
     `
   }
 };

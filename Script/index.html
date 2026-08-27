@@ -3,6 +3,20 @@
 <head>
   <base target="_top">
 
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']]
+      }
+    };
+  </script>
+
+  <script
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+    async>
+  </script>
+
   <style>
 
     body {
@@ -107,6 +121,24 @@
       margin-top: 30px;
     }
 
+    .axiom-box {
+      margin-top: 30px;
+      padding: 20px;
+      border-top: 1px solid #ddd;
+      text-align: left;
+    }
+
+    .axiom-box h3 {
+      text-align: center;
+      margin-top: 0;
+    }
+
+    #resultAxiom {
+      white-space: pre-line;
+      line-height: 1.6;
+      font-family: "Courier New", monospace;
+    }
+
   </style>
 </head>
 
@@ -189,11 +221,19 @@
 
       <div class="description" id="resultDescription"></div>
 
+      <div class="axiom-box">
+
+        <h3>For Mathematical Purposes</h3>
+
+        <div id="resultAxiom"></div>
+
+      </div>
+
       <div class="scores">
 
         <button type="button" onclick="showScores()">
         Want to see why?
-      </button>
+        </button>
 
       <div id="scoreList" style="display: none; margin-top: 20px;"></div>
 
@@ -311,6 +351,15 @@
 
       document.getElementById("resultDescription").textContent =
         result.description;
+
+      document.getElementById("resultAxiom").innerHTML =
+        result.axiom;
+
+      if (window.MathJax && MathJax.typesetPromise) {
+        MathJax.typesetPromise([
+          document.getElementById("resultAxiom")
+        ]);
+      }
 
 
       // Display score distribution.
